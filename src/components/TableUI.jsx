@@ -1,45 +1,60 @@
 import React from 'react';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
+
+import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import CardContent from './CardContent';
 
 
 export default props => {
-  console.log(props)
-    return(
-        <>
-            <Paper >
-      <Table >
-        <TableHead>
-          <TableRow>
-            <TableCell>Author</TableCell>
-            <TableCell align="right">Qty.</TableCell>
-            <TableCell align="right">@</TableCell>
-            <TableCell align="right">Price</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
+console.log(props.data.payload.VEHICLE.AMBIENT_AIR_TEMP.cmdResult)
+  return (
+    <>
+      <Paper >
+        <Typography variant="h5" component="h3">
+          Sample Dashboard.
+        </Typography>
+        
+        <Grid container spacing={12}>
+          <Grid item xs={3}>
+            <CardContent data1={props.data.author} data2={props.data.type} />
+          </Grid>
+          <Grid item xs={3}>
+            <CardContent data1={props.data.payload.ACCELERATION.unit} data2={props.data.payload.ACCELERATION.value} />
+          </Grid>
+          <Grid item xs={3}>
+            <CardContent data1={props.data.payload.VEHICLE.AMBIENT_AIR_TEMP.cmdResult} data2={props.data.payload.VEHICLE.AMBIENT_AIR_TEMP.cmdName} />
+          </Grid>
+          <Grid item xs={3}>
+            <CardContent data1={props.data.payload.VEHICLE.ENGINE_COOLANT_TEMP.cmdResult} data2={props.data.payload.VEHICLE.ENGINE_COOLANT_TEMP.cmdName} />
+          </Grid>
+          <Grid item xs={3}>
+            <CardContent data1={props.data.payload.VEHICLE.SPEED.cmdResult} data2={props.data.payload.VEHICLE.SPEED.cmdName} />
+          </Grid>
+          <Grid item xs={3}>
+            <CardContent data1={props.data.payload.VEHICLE.CONTROL_MODULE_VOLTAGE.cmdResult} data2={props.data.payload.VEHICLE.CONTROL_MODULE_VOLTAGE.cmdName} />
+          </Grid>
+          <Grid item xs={3}>
+            <CardContent data1={props.data.payload.VEHICLE.ENGINE_LOAD.cmdResult} data2={props.data.payload.VEHICLE.ENGINE_LOAD.cmdName} />
+          </Grid>
+          <Grid item xs={3}>
+            <CardContent data1={props.data.payload.VEHICLE.ENGINE_RPM.cmdResult} data2={props.data.payload.VEHICLE.ENGINE_RPM.cmdName} />
+          </Grid>
+          <Grid item xs={3}>
+            <CardContent data1={props.data.payload.VEHICLE.THROTTLE_POS.cmdResult} data2={props.data.payload.VEHICLE.THROTTLE_POS.cmdName} />
+          </Grid>
+          <Grid item xs={3}>
+            <CardContent data1={props.data.payload.VEHICLE.FUEL_LEVEL.cmdResult} data2={props.data.payload.VEHICLE.FUEL_LEVEL.cmdName} />
+          </Grid>
+          <Grid item xs={3}>
+            <CardContent data1={props.data.payload.VEHICLE.ENGINE_OIL_TEMP.cmdResult} data2={props.data.payload.VEHICLE.ENGINE_OIL_TEMP.cmdName} />
+          </Grid>
+          <Grid item xs={3}>
+            <CardContent data1={props.data.payload.VEHICLE.FUEL_PRESSURE.cmdResult} data2={props.data.payload.VEHICLE.FUEL_PRESSURE.cmdName} />
+          </Grid>
           
-          <TableRow>
-            <TableCell rowSpan={3}>{props.data.author}</TableCell>
-            <TableCell colSpan={2}>Subtotal</TableCell>
-            <TableCell align="right"></TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Tax</TableCell>
-            <TableCell align="right"></TableCell>
-            <TableCell align="right"></TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell colSpan={2}>Total</TableCell>
-            <TableCell align="right"></TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-    </Paper>
-        </>
-    )
+        </Grid>
+      </Paper>
+    </>
+  )
 }
